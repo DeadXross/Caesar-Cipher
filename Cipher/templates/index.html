@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Substitution Cipher</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1></h1>
+        
+        <div id="encrypt-section">
+            <form id="encrypt-form" onsubmit="event.preventDefault(); encrypt();" method="POST">
+                <label for="plaintext">Plaintext:</label>
+                <textarea id="plaintext" name="plaintext" rows="4" class="plain-textarea" placeholder="Type your message here!"></textarea>
+                
+                <div class="button-container">
+                    <button class="button" type="submit">Encrypt</button>
+                </div>
+                
+                <div class="result-container">
+                    <label class="result-label" for="ciphertext">Ciphertext:</label>
+                    <textarea id="ciphertext" name="ciphertext" rows="4" readonly class="result-textarea"></textarea>
+                </div>
+            </form>
+        </div>
+        
+        <div id="decrypt-section" style="display: none;">
+            <form id="decrypt-form" onsubmit="event.preventDefault(); decrypt();" method="POST">
+                <label for="ciphertext-dec">Ciphertext:</label>
+                <textarea id="ciphertext-dec" name="ciphertext" rows="4" class="plain-textarea" placeholder="Please enter your ciphertext here!"></textarea>
+                
+                <div class="button-container">
+                    <button class="button" type="submit">Decrypt</button>
+                </div>
+                
+                <div class="result-container">
+                    <label class="result-label" for="plaintext-dec">Plaintext:</label>
+                    <textarea id="plaintext-dec" name="plaintext" rows="4" readonly class="result-textarea"></textarea>
+                </div>
+            </form>
+        </div>
+        
+        <div class="toggle-container">
+            <button class="button" onclick="switchSection()">Encrypt/Decrypt</button>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
